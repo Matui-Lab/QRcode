@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アプリストアへ移動中...</title>
+    <script>
+        window.onload = function() {
+            const ua = navigator.userAgent.toLowerCase();
+            // iPadOSのPC表示モード対策を含めたiOS判定
+            const isIOS = /iphone|ipad|ipod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            const isAndroid = /android/.test(ua);
+
+            if (isIOS) {
+                window.location.replace('【iOSアプリのストアURL】');
+            } else if (isAndroid) {
+                window.location.replace('【AndroidアプリのストアURL】');
+            } else {
+                window.location.replace('【PC用フォールバック先URL（公式サイトなど）】');
+            }
+        };
+    </script>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 20%; color: #333; }
+    </style>
+</head>
+<body>
+    <p>アプリストアへ移動しています...</p>
+</body>
+</html>
